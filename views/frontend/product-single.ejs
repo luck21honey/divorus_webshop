@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Divorius - Sabores do Alentejo</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap"
+		rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="/resources/frontend/css/open-iconic-bootstrap.min.css">
+	<link rel="stylesheet" href="/resources/frontend/css/animate.css">
+
+	<link rel="stylesheet" href="/resources/frontend/css/owl.carousel.min.css">
+	<link rel="stylesheet" href="/resources/frontend/css/owl.theme.default.min.css">
+	<link rel="stylesheet" href="/resources/frontend/css/magnific-popup.css">
+
+	<link rel="stylesheet" href="/resources/frontend/css/aos.css">
+
+	<link rel="stylesheet" href="/resources/frontend/css/ionicons.min.css">
+
+	<link rel="stylesheet" href="/resources/frontend/css/bootstrap-datepicker.css">
+	<link rel="stylesheet" href="/resources/frontend/css/jquery.timepicker.css">
+
+
+	<link rel="stylesheet" href="/resources/frontend/css/flaticon.css">
+	<link rel="stylesheet" href="/resources/frontend/css/icomoon.css">
+	<link rel="stylesheet" href="/resources/frontend/css/style.css">
+	<link rel="icon" type="image/png" sizes="32x32" href="/resources/frontend/favicon/favicon-32x32.png">
+</head>
+
+<body class="goto-here">
+
+
+	<!-- END nav -->
+	<div id="x"><a href="/shop">
+			<h5>
+				<< Voltar</h5>
+		</a></div>
+	<%  for (let index in produto2){ %>
+	<section class="ftco-section">
+
+		<div class=" shop-items container">
+
+			<div class="shop-item row ">
+				<div class="col-lg-6 mb-5 ftco-animate">
+					<a href="./imgcomment/<%= produto2[index].images %>" class="image-popup"><img
+							src="./imgcomment/<%= produto2[index].images %>" class="shop-item-image img-fluid"
+							alt="Colorlib Template"></a>
+				</div>
+				<div class=" shop-item-details col-lg-6 product-details pl-md-5 ftco-animate  ">
+
+					<h3 class="shop-item-title"><%= produto2[index].nome %></h3>
+					<a href="./imgcomment/<%= produto2[index].images %>" class="image-popup " hidden><img
+							src="./imgcomment/<%= produto2[index].images %>" class="shop-item-image img-fluid"
+							alt="Colorlib Template"></a>
+
+					<p class="shop-item-description"><%= produto2[index].descricao %></p>
+
+					<p class=" price "><span class="shop-item-price1">€<%= produto2[index].preco %></span></p>
+
+					<div class="w-100"></div>
+					<div class="input-group col-md-6 d-flex mb-3">
+						<span class="input-group-btn mr-2">
+							<button type="button" class="quantity-left-minus btn" name="quantity" data-type="minus"
+								data-field="">
+								<i class="ion-ios-remove"></i>
+							</button>
+						</span>
+						<input type="text" id="quantity" name="quantity" class="form-control input-number quantity"
+							value="1" min="1" max="100">
+						<span class="input-group-btn ml-2">
+							<button type="button" class="quantity-right-plus btn" data-type="plus" data-field="">
+								<i class="ion-ios-add"></i>
+							</button>
+						</span>
+					</div>
+
+
+
+
+
+					<nav>
+						<table>
+
+							<div class="w-100"></div>
+							<div class="col-md-12">
+								<p style="color: #000;">Disponivel para entrega</p>
+							</div>
+
+				</div>
+			</div>
+		</div> <button class="btn shop-item-button buttonadd" type="button">To Cart </button>
+
+		</div>
+	</section><% } %>
+
+	<style>
+		#botao1 {
+			background-color: #b88d00;
+			border-radius: 0;
+			color: white;
+		}
+
+		#botao1:hover {
+			background-color: rgba(255, 255, 255, 0);
+			border-style: solid;
+			border-color: #b88d00;
+			border-width: 1px;
+			color: #b88d00;
+		}
+
+		#x h5 {
+			margin-left: 5%;
+			color: rgb(121, 119, 119);
+		}
+	</style>
+
+	<div class="shop-items" id="gridshop" name="grid">
+
+
+
+		<div class="shop-item">
+
+			<div class="shop-item-details">
+
+
+
+				<nav>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<section class="container content-section" id="compras">
+		<div class="cart-row" id="cartrow">
+			<h2>Cart</h2>
+		</div>
+		<div class="cart-items">
+		</div>
+		<div class="cart-total">
+			<strong class="cart-total-title">Total</strong>
+			<span class="cart-total-price">€0</span>
+		</div>
+	</section>
+
+
+	<!-- loader -->
+	<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
+			<circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+			<circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+				stroke="#F96D00" /></svg></div>
+
+
+	<script src="/resources/frontend/js/jquery.min.js"></script>
+	<script src="/resources/frontend/js/jquery-migrate-3.0.1.min.js"></script>
+	<script src="/resources/frontend/js/popper.min.js"></script>
+	<script src="/resources/frontend/js/bootstrap.min.js"></script>
+	<script src="/resources/frontend/js/jquery.easing.1.3.js"></script>
+	<script src="/resources/frontend/js/jquery.waypoints.min.js"></script>
+	<script src="/resources/frontend/js/jquery.stellar.min.js"></script>
+	<script src="/resources/frontend/js/owl.carousel.min.js"></script>
+	<script src="/resources/frontend/js/jquery.magnific-popup.min.js"></script>
+	<script src="/resources/frontend/js/aos.js"></script>
+	<script src="/resources/frontend/js/shop.js"></script>
+	<script src="js/jquery.animateNumber.min.js"></script>
+	<script src="/resources/frontend/js/bootstrap-datepicker.js"></script>
+	<script src="/resources/frontend/js/scrollax.min.js"></script>
+	<script
+		src="/resources/frontend/https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+	<script src="/resources/frontend/js/google-map.js"></script>
+	<script src="/resources/frontend/js/main.js"></script>
+
+	<script>
+		$(document).ready(function () {
+
+			var quantitiy = 0;
+			$('.quantity-right-plus').click(function (e) {
+
+				// Stop acting like a button
+				e.preventDefault();
+				// Get the field name
+				var quantity = parseInt($('#quantity').val());
+
+				// If is not undefined
+
+				$('#quantity').val(quantity + 1);
+
+
+				// Increment
+
+			});
+
+			$('.quantity-left-minus').click(function (e) {
+				// Stop acting like a button
+				e.preventDefault();
+				// Get the field name
+				var quantity = parseInt($('#quantity').val());
+
+				// If is not undefined
+
+				// Increment
+				if (quantity > 0) {
+					$('#quantity').val(quantity - 1);
+				}
+			});
+		});
+	</script>
+
+</body>
+
+</html>

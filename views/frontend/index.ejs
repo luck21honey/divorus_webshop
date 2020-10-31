@@ -834,9 +834,11 @@
 		$(document).ready(function () {
 			// initialize cart data in the localStorage
 			var cartData = JSON.parse(localStorage.getItem("cartData"));
-			if (cartData.length) {
-				$(".icon-shopping_cart").html(`[${cartData.length}]`)
+			if (cartData && cartData.length) {
+				$(".icon-shopping_cart").html(`[${cartData.length}]`);
+				console.log('cartData>>', cartData)
 			} else {
+				$(".icon-shopping_cart").html(`[0]`);
 				var initialCartData = [];
 				localStorage.setItem("cartData", JSON.stringify(initialCartData));
 			}

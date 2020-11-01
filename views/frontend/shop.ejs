@@ -644,14 +644,14 @@
 
 
 			var cartData = JSON.parse(localStorage.getItem("cartData"));
+			var totalPrice = 0;
 			if (cartData && cartData.length) {
 				$("#count_of_cart").html(`[${cartData.length}]`)
 				var cartHtml = '';
-				var totalPrice = 0;
 				for (var i = 0; i < cartData.length; i++) {
 					var paymentUnit = String(cartData[i].price).substr(0, 1);
 					cartHtml += `<tr class="text-center">
-									<td class="product-remove"><a href="#"><span class="ion-ios-close"></span></a></td>
+									<td class="product-remove"><a href="javascript:;" class="product-remove-button" data-id="${cartData[i].id}"><span class="ion-ios-close"></span></a></td>
 
 									<td class="image-prod">
 										<div class="img"
@@ -689,6 +689,23 @@
 				var initialCartData = [];
 				localStorage.setItem("cartData", JSON.stringify(initialCartData));
 			}
+
+			// remove cart
+			$(".product-remove-button").click(function () {
+				var cartData = JSON.parse(localStorage.getItem("cartData"));
+				var id = $(this).data("id");
+				var updatedCartData = [];
+				var totalPrice = 0;
+				for (var i = 0; i < cartData.length; i++) {
+					if (Number(cartData[i].id) !== id) {
+						updatedCartData.push(cartData[i]);
+						totalPrice += cartData[i].totalPrice;
+					}
+				}
+				localStorage.setItem("cartData", JSON.stringify(updatedCartData));
+				$("#total_price").html(`${paymentUnit}${totalPrice}`);
+				$(this).parent().parent().remove();
+			})
 		}) 
 	</script>
 

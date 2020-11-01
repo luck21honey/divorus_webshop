@@ -131,41 +131,43 @@ function addToCartClicked(event) {
 }
 
 function addItemToCart(title, price, imageSrc, quantidade2, id, description, totalPrice) {
-    var cartRow = document.createElement('div')
+    // var cartRow = document.createElement('div')
 
-    cartRow.dataset.itemId = id
-    cartRow.classList.add('cart-row')
-    var cartItems = document.getElementsByClassName('cart-items')[0];
-    var cartItemNames = cartItems.getElementsByClassName('cart-item-title');
+    // cartRow.dataset.itemId = id
+    // cartRow.classList.add('cart-row')
+    // var cartItems = document.getElementsByClassName('cart-items')[0];
+    // var cartItemNames = cartItems.getElementsByClassName('cart-item-title');
 
 
-    for (var i = 0; i < cartItemNames.length; i++) {
-        if ((cartItemNames[i].getAttribute('id') == id + '_item')) {
-            alert('This item is already added to the cart')
-            return
-        }
-    }
+    // for (var i = 0; i < cartItemNames.length; i++) {
+    //     if ((cartItemNames[i].getAttribute('id') == id + '_item')) {
+    //         alert('This item is already added to the cart')
+    //         return
+    //     }
+    // }
 
-    var cartRowContents = `
-        <div class="cart-item cart-column">
-            <img class="cart-item-image" src="${imageSrc}" width="200" height="250">
-            <br>
-            <span id="${id}_item" class="cart-item-title">${title}</span>
-        </div>
-        Price: <span class="cart-price cart-column">${price}</span><br>
+    // var cartRowContents = `
+    //     <div class="cart-item cart-column">
+    //         <img class="cart-item-image" src="${imageSrc}" width="200" height="250">
+    //         <br>
+    //         <span id="${id}_item" class="cart-item-title">${title}</span>
+    //     </div>
+    //     Price: <span class="cart-price cart-column">${price}</span><br>
 		
-        <div class="cart-quantity cart-column">
+    //     <div class="cart-quantity cart-column">
         
-            <input class="cart-quantity-input" value="${quantidade2}">
+    //         <input class="cart-quantity-input" value="${quantidade2}">
             
         
         
             
-            <button class="btn btn-danger" type="button">Remover</button>
-        </div>`;
+    //         <button class="btn btn-danger" type="button">Remover</button>
+    //     </div>`;
 
-    cartRow.innerHTML = cartRowContents
-    cartItems.append(cartRow)
+    // cartRow.innerHTML = cartRowContents
+    // cartItems.append(cartRow)
+
+    // cartRow.getElementsByClassName('btn-danger')[0].addEventListener('click', removeCartItem)
 
     // save cart data to local storage : title, price, imageSrc, quantidade2, id
     var cartItem = {
@@ -191,8 +193,7 @@ function addItemToCart(title, price, imageSrc, quantidade2, id, description, tot
     }
     
     localStorage.setItem("cartData", JSON.stringify(cartData));
-
-    cartRow.getElementsByClassName('btn-danger')[0].addEventListener('click', removeCartItem)
+    window.location.href = "/shop";
 }
 
 function updateCartTotal() {

@@ -60,7 +60,7 @@
 
 					<p class="shop-item-description"><%= produto2[index].descricao %></p>
 
-					<p class=" price "><span class="shop-item-price1">€<%= produto2[index].preco %></span></p>
+					<p class=" price "><span class="shop-item-price1" id="<%= produto2[index].id %>">€<%= produto2[index].preco %></span></p>
 
 					<div class="w-100"></div>
 					<div class="input-group col-md-6 d-flex mb-3">
@@ -93,7 +93,7 @@
 
 				</div>
 			</div>
-		</div> <button class="btn shop-item-button buttonadd" type="button">To Cart </button>
+		</div> <button id="botao1" class="btn shop-item-button buttonadd" type="button">Adicionar ao carrinho </button>
 
 		</div>
 	</section><% } %>
@@ -102,7 +102,7 @@
 		#botao1 {
 			background-color: #b88d00;
 			border-radius: 0;
-			color: white;
+			color: rgb(211, 190, 5);
 		}
 
 		#botao1:hover {
@@ -111,6 +111,8 @@
 			border-color: #b88d00;
 			border-width: 1px;
 			color: #b88d00;
+			cursor: pointer;
+
 		}
 
 		#x h5 {
@@ -119,25 +121,9 @@
 		}
 	</style>
 
-	<div class="shop-items" id="gridshop" name="grid">
+	
 
-
-
-		<div class="shop-item">
-
-			<div class="shop-item-details">
-
-
-
-				<nav>
-
-			</div>
-
-		</div>
-
-	</div>
-
-	<section class="container content-section" id="compras">
+	<section class="container content-section" id="compras" style="display: none;">
 		<div class="cart-row" id="cartrow">
 			<h2>Cart</h2>
 		</div>

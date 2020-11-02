@@ -4,6 +4,6 @@ module.exports = {
   'user':'root',
   'password':''
  },
- 'database':'sokanew',
+ 'database':'divorius',
  'user_table':'users'
 }

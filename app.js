@@ -39,7 +39,7 @@ const db = mysql.createConnection ({
     host: 'localhost',
     user: 'root',
     password: '',
-    database: 'sokanew'
+    database: 'divorius'
 });
 
 // connect to database
@@ -52,21 +52,7 @@ db.connect((err) => {
 global.db = db;
 
 
-db.query('Select count(*) as total from contactus', function(err,messages) {
-  global.total_contact = messages[0].total;
-});
 
-db.query('Select count(*) as total from contactus where is_read=0', function(err,messages) {
-  global.total_contact_unread = messages[0].total;
-});
-
-db.query('Select sum(plan_price) as total from plan_subscription', function(err,messages) {
-  global.total_sale = messages[0].total;
-});  
-
-db.query('Select count(*) as total from plan_subscription', function(err,messages) { 
-  global.total_values = messages[0].total;
-});  
 
 // configure middleware
 app.set('port', process.env.port || port); // set express to use this port

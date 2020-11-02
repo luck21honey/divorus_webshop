@@ -25,7 +25,10 @@
 	<link rel="stylesheet" href="/resources/frontend/css/bootstrap-datepicker.css">
 	<link rel="stylesheet" href="/resources/frontend/css/jquery.timepicker.css">
 
-
+    <script
+  src="https://code.jquery.com/jquery-1.8.3.js"
+  integrity="sha256-dW19+sSjW7V1Q/Z3KD1saC6NcE5TUIhLJzJbrdKzxKc="
+  crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="/resources/frontend/css/flaticon.css">
 	<link rel="stylesheet" href="/resources/frontend/css/icomoon.css">
 	<link rel="stylesheet" href="/resources/frontend/css/style.css">
@@ -50,8 +53,8 @@
 					</li>
 					<!--<li class="nav-item"><a href="about.html" class="nav-link">About</a></li>-->
 					<li class="nav-item"><a href="#" class="nav-link">Sobre</a></li>
-					<li class="nav-item"><a href="#" class="nav-link">Contacto</a></li>
-					<li class="nav-item cta cta-colored"><a style="color: white;" href="#" class="nav-link"><span
+					<li class="nav-item"><a href="./contact" class="nav-link">Contacto</a></li>
+					<li class="nav-item cta cta-colored"><a style="color: white;" href="#cart_list" class="nav-link"><span
 								style="color: white;" class="icon-shopping_cart" id="count_of_cart"></span></a></li>
 
 				</ul>
@@ -87,7 +90,7 @@
 	<!-- END nav -->
 
 	<div class="hero-wrap hero-bread"
-		style="background-image: url('/resources/frontend/images/capa7.jpg');margin-top: -80px;">
+		style="background-image: url('/resources/frontend/images/capa12.jpg');margin-top: -80px;">
 		<div class="container">
 			<div class="row no-gutters slider-text align-items-center justify-content-center">
 				<div class="col-md-9 ftco-animate text-center">
@@ -135,7 +138,7 @@
 						id="preco" name="preco">
 						<option value="" selected>Ordenar por</option>
 						<option value="1">Preço mais baixo</option>
-						<option value="2">Preço mais caro</option>
+						<option value="2">Preço mais alto</option>
 
 					</select>
 
@@ -170,7 +173,9 @@
 
 						#pagination .active {
 							color: #b88d00;
+							
 						}
+						.img-fluid{margin: 40px;}
 					</style>
 
 
@@ -213,36 +218,7 @@
 				</div>
 			</div>
 			<% } %>
-			<!--
-    			<div class="col-md-6 col-lg-3 ftco-animate">
-    				<div class="product">
-    					<a href="#" class="img-prod"><img class="img-fluid" src="/resources/frontend/images/paio-tradiconal-SEL-375x400.png" alt="Colorlib Template">
-    						<div class="overlay"></div>
-    					</a>
-    					<div class="text py-3 pb-4 px-3 text-center">
-    						<h3><a href="#">Presunto</a></h3>
-    						<div class="d-flex">
-    							<div class="pricing">
-		    						<p class="price"><span>€120.00</span></p>
-		    					</div>
-	    					</div>
-    						<div class="bottom-area d-flex px-3">
-	    						<div class="m-auto d-flex">
-	    							<a href="#" class="add-to-cart d-flex justify-content-center align-items-center text-center">
-	    								<span><i class="ion-ios-menu"></i></span>
-	    							</a>
-	    							<a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
-	    								<span><i class="ion-ios-cart"></i></span>
-	    							</a>
-	    							<a href="#" class="heart d-flex justify-content-center align-items-center ">
-	    								<span><i class="ion-ios-heart"></i></span>
-	    							</a>
-    							</div>
-    						</div>
-    					</div>
-    				</div>
-				</div>
-    		</div>-->
+			
 			<div style="margin: auto;" class="row mt-5">
 
 			</div>
@@ -275,132 +251,142 @@
 								<tr class="text-center">
 									<th>&nbsp;</th>
 									<th>&nbsp;</th>
+									
 									<th>Nome do Produto</th>
 									<th>Preço</th>
 									<th>Quantidade</th>
 									<th>Total</th>
 								</tr>
+								<form action="./encomendas" method="POST" class="billing-form" action="./encomendas">
+										
 							</thead>
+
 							<tbody id="cart_list">
-								<!-- <tr class="text-center">
-									<td class="product-remove"><a href="#"><span class="ion-ios-close"></span></a></td>
-
-									<td class="image-prod">
-										<div class="img"
-											style="background-image:url(/resources/frontend/images/product-3.jpg);">
-										</div>
-									</td>
-
-									<td class="product-name">
-										<h3>Bell Pepper</h3>
-										<p>Far far away, behind the word mountains, far from the countries</p>
-									</td>
-
-									<td class="price">$4.90</td>
-
-									<td class="quantity">
-										<div class="input-group mb-3">
-											<input type="text" name="quantity"
-												class="quantity form-control input-number" value="1" min="1" max="100">
-										</div>
-									</td>
-
-									<td class="total">$4.90</td>
-								</tr>
-
-								<tr class="text-center">
-									<td class="product-remove"><a href="#"><span class="ion-ios-close"></span></a></td>
-
-									<td class="image-prod">
-										<div class="img"
-											style="background-image:url(/resources/frontend/images/product-4.jpg);">
-										</div>
-									</td>
-
-									<td class="product-name">
-										<h3>Bell Pepper</h3>
-										<p>Far far away, behind the word mountains, far from the countries</p>
-									</td>
-
-									<td class="price">$15.70</td>
-
-									<td class="quantity">
-										<div class="input-group mb-3">
-											<input type="text" name="quantity"
-												class="quantity form-control input-number" value="1" min="1" max="100">
-										</div>
-									</td>
-
-									<td class="total">$15.70</td>
-								</tr> -->
+								
 							</tbody>
 						</table>
 					</div>
 				</div>
 			</div>
 			<div class="row justify-content-end">
-				<!--	  <div class="col-lg-4 mt-5 cart-wrap ftco-animate">
-					  <div class="cart-total mb-3">
-						  <h3>Coupon Code</h3>
-						  <p>Enter your coupon code if you have one</p>
-							<form action="#" class="info">
-					<div class="form-group">
-						<label for="">Coupon code</label>
-					  <input type="text" class="form-control text-left px-3" placeholder="">
-					</div>
-				  </form>
-					  </div>
-					  <p><a href="checkout.html" class="btn btn-primary py-3 px-4">Apply Coupon</a></p>
-				  </div>
-				  <div class="col-lg-4 mt-5 cart-wrap ftco-animate">
-					  <div class="cart-total mb-3">
-						  <h3>Estimate shipping and tax</h3>
-						  <p>Enter your destination to get a shipping estimate</p>
-							<form action="#" class="info">
-					<div class="form-group">
-						<label for="">Country</label>
-					  <input type="text" class="form-control text-left px-3" placeholder="">
-					</div>
-					<div class="form-group">
-						<label for="country">State/Province</label>
-					  <input type="text" class="form-control text-left px-3" placeholder="">
-					</div>
-					<div class="form-group">
-						<label for="country">Zip/Postal Code</label>
-					  <input type="text" class="form-control text-left px-3" placeholder="">
-					</div>
-				  </form>
-					  </div>
-					  <p><a href="checkout.html" class="btn btn-primary py-3 px-4">Estimate</a></p>
-				  </div>-->
-				<div class="col-lg-12 mt-5 cart-wrap ftco-animate">
-					<div class="cart-total mb-3">
-						<h3>Valor do carrinho</h3>
-						<!-- <p class="d-flex">
-							  <span>Subtotal</span>
-							  <span>$20.60</span>
-						  </p>
-						  <p class="d-flex">
-							  <span>Delivery</span>
-							  <span>$0.00</span>
-						  </p>
-						  <p class="d-flex">
-							  <span>Discount</span>
-							  <span>$3.00</span>
-						  </p>
-						  <hr>-->
-						<p class="d-flex total-price">
-							<span>Total</span>
-							<span id="total_price"></span>
-						</p>
-					</div>
-
-
-					<p id="idbotao"><a href="checkout.html" id="botao1" class="btn col-lg-12 text-center"
-							style="text-align: center; width: 30%;">Proceder para o pagamento</a></p>
-
-
-
+				
+				
+					<section class="ftco-section">
+						<div class="container">
+						  <div class="row justify-content-center">
+							<div class="col-xl-7 ftco-animate">
+										  <form action="./encomendas" method="POST" class="billing-form" action="./encomendas">
+											  <h3 class="mb-4 billing-heading">Detalhes do Cliente</h3>
+									<div class="row align-items-end">
+										<div class="col-md-6">
+									  <div class="form-group">
+										  <label for="firstname">Primeiro Nome</label>
+										<input type="text" name="pnome" class="form-control" placeholder="">
+									  </div>
+									</div>
+									<div class="col-md-6">
+									  <div class="form-group">
+										  <label for="lastname">Último Nome</label>
+										<input type="text" name="unome" class="form-control" placeholder="">
+									  </div>
+								  </div>
+								  <div class="w-100"></div>
+									  <div class="col-md-12">
+										  <div class="form-group">
+											  <label for="state">Cantão</label>
+											  <div class="select-wrap">
+											<div class="icon"><span class="ion-ios-arrow-down"></span></div>
+											<select name="cantao" id="cantao" class="form-control">
+												<option >Escolhe um Cantão</option>
+												<%  for (let index in cantao){ %>
+											  
+											  <option value="<%= cantao[index].distrito %>"><%= cantao[index].distrito %></option>
+											  <% } %></select>
+										  </div>
+										  </div>
+									  </div>
+									  <div class="w-100"></div>
+									  <div class="col-md-12">
+										  <div class="form-group">
+										  <label for="streetaddress">Morada</label>
+										<input type="text" class="form-control" name="morada" placeholder="Nome da rua e número da porta">
+									  </div>
+									  </div>
+									
+									  <div class="w-100"></div>
+									  <div class="col-md-6">
+										  <div class="form-group">
+										  <label for="towncity">País</label>
+										<input type="text" class="form-control" placeholder=" Suiça"  disabled>
+									  </div>
+									  </div>
+									  <div class="col-md-6">
+										  <div class="form-group">
+											  <label for="postcodezip">Código Postal</label>
+										<input type="text" class="form-control" name="codpos" placeholder="">
+									  </div>
+									  </div>
+									  <div class="w-100"></div>
+									  <div class="col-md-6">
+									  <div class="form-group">
+										  <label for="phone">Telefone</label>
+										<input type="text" name="telefone" class="form-control" placeholder="">
+									  </div>
+									</div>
+									<div class="col-md-6">
+									  <div class="form-group">
+										  <label for="emailaddress">Email </label>
+										<input type="text" name="email" class="form-control" placeholder="">
+									  </div>
+								  </div>
+								  <div class="w-100"></div>
+								  <div class="col-md-12">
+									  <div class="form-group mt-4">
+														 
+													  </div>
+								  </div>
+								  </div>
+								<!-- END -->
+									  </div>
+									  <div class="col-xl-5">
+								<div class="row mt-5 pt-3">
+									<div class="col-md-12 d-flex mb-5">
+										<div class="cart-detail cart-total p-3 p-md-4">
+											<h3 class="billing-heading mb-4">Valor do Carrinho</h3>
+											
+												  <hr>
+												  <p class="d-flex total-price">
+													  <span>Total</span>
+													  <span  id="total_price"></span>
+												  </p>
+												  </div>
+									</div>
+									<div class="col-md-12">
+										<div class="cart-detail p-3 p-md-4">
+											<h3 class="billing-heading mb-4">Metodos de pagamento</h3>
+													  <!--
+													  
+													  <div class="form-group">
+														  <div class="col-md-12">
+															  <div class="checkbox">
+																 <label><input type="checkbox" value="" class="mr-2"> Eu li e aceito os termos e condições</label>
+															  </div>
+														  </div>
+													  </div> -->
+													  <p><a id='business' href="#"class="btn btn-primary py-3 px-4" style="display:none">Pagar com cartão de crédito</a></p>
+													  
+													  <button  type="submit" class="btn btn-primary py-3 px-4">Fazer o pedido (pagar na entrega)</button>
+													</div>
+									</div>
+								</div>
+							</div>
+						</form> <!-- .col-md-8 -->
+						  </div>
+						</div>
+					  </section> <!-- .section -->
+				  
+                    	
+						
 				</div>
 			</div>
 		</div>
@@ -446,95 +432,7 @@
 		}
 	</style>
 
-	<div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel"
-		aria-hidden="true">
-		<div class="modal-dialog modal-lg" role="document">
-			<div class="modal-content">
-
-				<form action="./contactsave" method="post">
-
-					<section class="ftco-section">
-						<div class="container">
-							<div class="row">
-								<div class="col-lg-6 mb-5 ftco-animate">
-									<a href="/resources/frontend/images/product-1.jpg" class="image-popup"><img src=""
-											class="img-fluid" alt="Colorlib Template"></a>
-								</div>
-								<div class="col-lg-6 product-details pl-md-5 ftco-animate">
-									<h3></h3>
-									<div class="rating d-flex">
-										<p class="text-left mr-4">
-											<a href="#" class="mr-2">5.0</a>
-											<a href="#"><span class="ion-ios-star-outline"></span></a>
-											<a href="#"><span class="ion-ios-star-outline"></span></a>
-											<a href="#"><span class="ion-ios-star-outline"></span></a>
-											<a href="#"><span class="ion-ios-star-outline"></span></a>
-											<a href="#"><span class="ion-ios-star-outline"></span></a>
-										</p>
-										<p class="text-left mr-4">
-											<a href="#" class="mr-2" style="color: #000;">100 <span
-													style="color: #bbb;">Rating</span></a>
-										</p>
-										<p class="text-left">
-											<a href="#" class="mr-2" style="color: #000;">500 <span
-													style="color: #bbb;">Sold</span></a>
-										</p>
-									</div>
-									<p class="price"><span>$120.00</span></p>
-									<p>A small river named Duden flows by their place and supplies it with the necessary
-										regelialia. It is a paradisematic country, in which roasted parts of sentences
-										fly into your mouth. Text should turn around and return to its own, safe
-										country. But nothing the copy said could convince her and so it didn’t take long
-										until.
-									</p>
-									<div class="row mt-4">
-										<div class="col-md-6">
-											<div class="form-group d-flex">
-												<div class="select-wrap">
-													<div class="icon"><span class="ion-ios-arrow-down"></span></div>
-
-													<!--
-								  <select name="" id="" class="form-control">
-									  <option value="">Small</option>
-									<option value="">Medium</option>
-									<option value="">Large</option>
-									<option value="">Extra Large</option>
-								  </select>-->
-												</div>
-											</div>
-										</div>
-										<div class="w-100"></div>
-										<div class="input-group col-md-6 d-flex mb-3">
-											<span class="input-group-btn mr-2">
-												<button type="button" class="quantity-left-minus btn" data-type="minus"
-													data-field="">
-													<i class="ion-ios-remove"></i>
-												</button>
-											</span>
-											<input type="text" id="quantity" name="quantity"
-												class="form-control input-number" value="1" min="1" max="100">
-											<span class="input-group-btn ml-2">
-												<button type="button" class="quantity-right-plus btn" data-type="plus"
-													data-field="">
-													<i class="ion-ios-add"></i>
-												</button>
-											</span>
-										</div>
-										<div class="w-100"></div>
-										<div class="col-md-12">
-											<p style="color: #000;">600 kg available</p>
-										</div>
-									</div>
-									<p><a href="cart.html" class="btn btn-black py-3 px-5">Adicionar ao carrinho</a></p>
-								</div>
-							</div>
-						</div>
-					</section>
-				</form>
-
-			</div>
-		</div>
-	</div>
+	
 
 	<footer class="ftco-footer ftco-section">
 		<div class="container">
@@ -620,7 +518,7 @@
 			<circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
 				stroke="#F96D00" /></svg></div>
 
-
+				<script src="/resources/frontend/js/shop.js"></script>
 	<script src="/resources/frontend/js/jquery.min.js"></script>
 	<script src="/resources/frontend/js/jquery-migrate-3.0.1.min.js"></script>
 	<script src="/resources/frontend/js/popper.min.js"></script>
@@ -639,6 +537,37 @@
 	<script src="/resources/frontend/js/google-map.js"></script>
 	<script src="/resources/frontend/js/main.js"></script>
 
+
+	<script>$(document).ready(function(){
+		$('#cantao').on('change', function() {
+		  if ( this.value === 'Zürich' || 'Aargau' || 'St. Gallen' || 'Appenzell Ausserrhoden' || 'Appenzell Innerrhoden' || 'Luzern' || 'Schaffhausen')
+		  {
+			$("#business").show();
+		  }
+		  else
+		  {
+			$("#business").hide();
+		  }
+		});
+	});</script>
+	<script>$(document).ready(function(){
+		$('#cantao').on('change', function() {
+		  if ( this.value === 'Genf' )
+		  {
+			$("#business").hide();
+		  }
+		  else if( this.value === 'Uri' || this.value === 'Zug' || this.value === 'Schwyz' ||
+		   this.value === 'Obwalden' ||  this.value === 'Nidwalden' ||  this.value === 'Glarus' || 
+			this.value === 'Freiburg' ||  this.value === 'Solothurn' ||  this.value === 'Basel-Stadt' ||  
+			this.value === 'Basel-Landschaft' ||  this.value === 'Graubünden' ||  this.value === 'Thurgau'
+			 || this.value === 'Tessin' || this.value === 'Waadt' || this.value === 'Wallis' 
+			 || this.value === 'Neuenburg' || this.value === 'Bern' || this.value === 'Jura' )
+		  {
+			$("#business").hide();
+		  }else 
+		  {$("#business").show();}
+		});
+	});</script>
 	<script>
 		$(document).ready(function () {
 
@@ -665,6 +594,7 @@
 									</td>
 
 									<td class="price">${cartData[i].price}</td>
+									
 
 									<td class="quantity">
 										<div class="input-group mb-3">
@@ -708,6 +638,7 @@
 			})
 		}) 
 	</script>
+
 
 </body>
 

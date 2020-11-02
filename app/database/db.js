@@ -10,7 +10,7 @@ db_config = {
 	host         : 'localhost',
 	user         : 'root',
 	password     : '',
-	database     : 'sokanew'
+	database     : 'divorius'
 };
 
 

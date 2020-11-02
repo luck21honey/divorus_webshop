@@ -25,10 +25,8 @@
 	<link rel="stylesheet" href="/resources/frontend/css/bootstrap-datepicker.css">
 	<link rel="stylesheet" href="/resources/frontend/css/jquery.timepicker.css">
 
-    <script
-  src="https://code.jquery.com/jquery-1.8.3.js"
-  integrity="sha256-dW19+sSjW7V1Q/Z3KD1saC6NcE5TUIhLJzJbrdKzxKc="
-  crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-1.8.3.js"
+		integrity="sha256-dW19+sSjW7V1Q/Z3KD1saC6NcE5TUIhLJzJbrdKzxKc=" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="/resources/frontend/css/flaticon.css">
 	<link rel="stylesheet" href="/resources/frontend/css/icomoon.css">
 	<link rel="stylesheet" href="/resources/frontend/css/style.css">
@@ -54,8 +52,9 @@
 					<!--<li class="nav-item"><a href="about.html" class="nav-link">About</a></li>-->
 					<li class="nav-item"><a href="#" class="nav-link">Sobre</a></li>
 					<li class="nav-item"><a href="./contact" class="nav-link">Contacto</a></li>
-					<li class="nav-item cta cta-colored"><a style="color: white;" href="#cart_list" class="nav-link"><span
-								style="color: white;" class="icon-shopping_cart" id="count_of_cart"></span></a></li>
+					<li class="nav-item cta cta-colored"><a style="color: white;" href="#cart_list"
+							class="nav-link"><span style="color: white;" class="icon-shopping_cart"
+								id="count_of_cart"></span></a></li>
 
 				</ul>
 			</div>
@@ -173,9 +172,12 @@
 
 						#pagination .active {
 							color: #b88d00;
-							
+
 						}
-						.img-fluid{margin: 40px;}
+
+						.img-fluid {
+							margin: 40px;
+						}
 					</style>
 
 
@@ -218,7 +220,7 @@
 				</div>
 			</div>
 			<% } %>
-			
+
 			<div style="margin: auto;" class="row mt-5">
 
 			</div>
@@ -251,120 +253,124 @@
 								<tr class="text-center">
 									<th>&nbsp;</th>
 									<th>&nbsp;</th>
-									
+
 									<th>Nome do Produto</th>
 									<th>Preço</th>
 									<th>Quantidade</th>
 									<th>Total</th>
 								</tr>
 								<form action="./encomendas" method="POST" class="billing-form" action="./encomendas">
-										
+
 							</thead>
 
 							<tbody id="cart_list">
-								
+
 							</tbody>
 						</table>
 					</div>
 				</div>
 			</div>
 			<div class="row justify-content-end">
-				
-				
-					<section class="ftco-section">
-						<div class="container">
-						  <div class="row justify-content-center">
+
+
+				<section class="ftco-section">
+					<div class="container">
+						<div class="row justify-content-center">
 							<div class="col-xl-7 ftco-animate">
-										  <form action="./encomendas" method="POST" class="billing-form" action="./encomendas">
-											  <h3 class="mb-4 billing-heading">Detalhes do Cliente</h3>
+								<form action="./encomendas" method="POST" class="billing-form" action="./encomendas">
+									<input type="hidden" id="cart_data" name="cart_data">
+									<h3 class="mb-4 billing-heading">Detalhes do Cliente</h3>
 									<div class="row align-items-end">
 										<div class="col-md-6">
-									  <div class="form-group">
-										  <label for="firstname">Primeiro Nome</label>
-										<input type="text" name="pnome" class="form-control" placeholder="">
-									  </div>
+											<div class="form-group">
+												<label for="firstname">Primeiro Nome</label>
+												<input type="text" name="pnome" class="form-control" placeholder="">
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label for="lastname">Último Nome</label>
+												<input type="text" name="unome" class="form-control" placeholder="">
+											</div>
+										</div>
+										<div class="w-100"></div>
+										<div class="col-md-12">
+											<div class="form-group">
+												<label for="state">Cantão</label>
+												<div class="select-wrap">
+													<div class="icon"><span class="ion-ios-arrow-down"></span></div>
+													<select name="cantao" id="cantao" class="form-control">
+														<option>Escolhe um Cantão</option>
+														<%  for (let index in cantao){ %>
+
+														<option value="<%= cantao[index].distrito %>">
+															<%= cantao[index].distrito %></option>
+														<% } %>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="w-100"></div>
+										<div class="col-md-12">
+											<div class="form-group">
+												<label for="streetaddress">Morada</label>
+												<input type="text" class="form-control" name="morada"
+													placeholder="Nome da rua e número da porta">
+											</div>
+										</div>
+
+										<div class="w-100"></div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label for="towncity">País</label>
+												<input type="text" class="form-control" placeholder=" Suiça" disabled>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label for="postcodezip">Código Postal</label>
+												<input type="text" class="form-control" name="codpos" placeholder="">
+											</div>
+										</div>
+										<div class="w-100"></div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label for="phone">Telefone</label>
+												<input type="text" name="telefone" class="form-control" placeholder="">
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label for="emailaddress">Email </label>
+												<input type="text" name="email" class="form-control" placeholder="">
+											</div>
+										</div>
+										<div class="w-100"></div>
+										<div class="col-md-12">
+											<div class="form-group mt-4">
+
+											</div>
+										</div>
 									</div>
-									<div class="col-md-6">
-									  <div class="form-group">
-										  <label for="lastname">Último Nome</label>
-										<input type="text" name="unome" class="form-control" placeholder="">
-									  </div>
-								  </div>
-								  <div class="w-100"></div>
-									  <div class="col-md-12">
-										  <div class="form-group">
-											  <label for="state">Cantão</label>
-											  <div class="select-wrap">
-											<div class="icon"><span class="ion-ios-arrow-down"></span></div>
-											<select name="cantao" id="cantao" class="form-control">
-												<option >Escolhe um Cantão</option>
-												<%  for (let index in cantao){ %>
-											  
-											  <option value="<%= cantao[index].distrito %>"><%= cantao[index].distrito %></option>
-											  <% } %></select>
-										  </div>
-										  </div>
-									  </div>
-									  <div class="w-100"></div>
-									  <div class="col-md-12">
-										  <div class="form-group">
-										  <label for="streetaddress">Morada</label>
-										<input type="text" class="form-control" name="morada" placeholder="Nome da rua e número da porta">
-									  </div>
-									  </div>
-									
-									  <div class="w-100"></div>
-									  <div class="col-md-6">
-										  <div class="form-group">
-										  <label for="towncity">País</label>
-										<input type="text" class="form-control" placeholder=" Suiça"  disabled>
-									  </div>
-									  </div>
-									  <div class="col-md-6">
-										  <div class="form-group">
-											  <label for="postcodezip">Código Postal</label>
-										<input type="text" class="form-control" name="codpos" placeholder="">
-									  </div>
-									  </div>
-									  <div class="w-100"></div>
-									  <div class="col-md-6">
-									  <div class="form-group">
-										  <label for="phone">Telefone</label>
-										<input type="text" name="telefone" class="form-control" placeholder="">
-									  </div>
-									</div>
-									<div class="col-md-6">
-									  <div class="form-group">
-										  <label for="emailaddress">Email </label>
-										<input type="text" name="email" class="form-control" placeholder="">
-									  </div>
-								  </div>
-								  <div class="w-100"></div>
-								  <div class="col-md-12">
-									  <div class="form-group mt-4">
-														 
-													  </div>
-								  </div>
-								  </div>
-								<!-- END -->
-									  </div>
-									  <div class="col-xl-5">
+									<!-- END -->
+							</div>
+							<div class="col-xl-5">
 								<div class="row mt-5 pt-3">
 									<div class="col-md-12 d-flex mb-5">
 										<div class="cart-detail cart-total p-3 p-md-4">
 											<h3 class="billing-heading mb-4">Valor do Carrinho</h3>
-											
-												  <hr>
-												  <p class="d-flex total-price">
-													  <span>Total</span>
-													  <span  id="total_price"></span>
-												  </p>
-												  </div>
+
+											<hr>
+											<p class="d-flex total-price">
+												<span>Total</span>
+												<span id="total_price"></span>
+											</p>
+										</div>
 									</div>
 									<div class="col-md-12">
 										<div class="cart-detail p-3 p-md-4">
 											<h3 class="billing-heading mb-4">Metodos de pagamento</h3>
-													  <!--
+											<!--
 													  
 													  <div class="form-group">
 														  <div class="col-md-12">
@@ -373,22 +379,24 @@
 															  </div>
 														  </div>
 													  </div> -->
-													  <p><a id='business' href="#"class="btn btn-primary py-3 px-4" style="display:none">Pagar com cartão de crédito</a></p>
-													  
-													  <button  type="submit" class="btn btn-primary py-3 px-4">Fazer o pedido (pagar na entrega)</button>
-													</div>
+											<p><a id='business' href="#" class="btn btn-primary py-3 px-4"
+													style="display:none">Pagar com cartão de crédito</a></p>
+
+											<button type="submit" class="btn btn-primary py-3 px-4">Fazer o pedido
+												(pagar na entrega)</button>
+										</div>
 									</div>
 								</div>
 							</div>
-						</form> <!-- .col-md-8 -->
-						  </div>
+							</form> <!-- .col-md-8 -->
 						</div>
-					  </section> <!-- .section -->
-				  
-                    	
-						
-				</div>
+					</div>
+				</section> <!-- .section -->
+
+
+
 			</div>
+		</div>
 		</div>
 		</div>
 	</section>
@@ -432,7 +440,7 @@
 		}
 	</style>
 
-	
+
 
 	<footer class="ftco-footer ftco-section">
 		<div class="container">
@@ -518,7 +526,7 @@
 			<circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
 				stroke="#F96D00" /></svg></div>
 
-				<script src="/resources/frontend/js/shop.js"></script>
+	<script src="/resources/frontend/js/shop.js"></script>
 	<script src="/resources/frontend/js/jquery.min.js"></script>
 	<script src="/resources/frontend/js/jquery-migrate-3.0.1.min.js"></script>
 	<script src="/resources/frontend/js/popper.min.js"></script>
@@ -538,36 +546,31 @@
 	<script src="/resources/frontend/js/main.js"></script>
 
 
-	<script>$(document).ready(function(){
-		$('#cantao').on('change', function() {
-		  if ( this.value === 'Zürich' || 'Aargau' || 'St. Gallen' || 'Appenzell Ausserrhoden' || 'Appenzell Innerrhoden' || 'Luzern' || 'Schaffhausen')
-		  {
-			$("#business").show();
-		  }
-		  else
-		  {
-			$("#business").hide();
-		  }
-		});
-	});</script>
-	<script>$(document).ready(function(){
-		$('#cantao').on('change', function() {
-		  if ( this.value === 'Genf' )
-		  {
-			$("#business").hide();
-		  }
-		  else if( this.value === 'Uri' || this.value === 'Zug' || this.value === 'Schwyz' ||
-		   this.value === 'Obwalden' ||  this.value === 'Nidwalden' ||  this.value === 'Glarus' || 
-			this.value === 'Freiburg' ||  this.value === 'Solothurn' ||  this.value === 'Basel-Stadt' ||  
-			this.value === 'Basel-Landschaft' ||  this.value === 'Graubünden' ||  this.value === 'Thurgau'
-			 || this.value === 'Tessin' || this.value === 'Waadt' || this.value === 'Wallis' 
-			 || this.value === 'Neuenburg' || this.value === 'Bern' || this.value === 'Jura' )
-		  {
-			$("#business").hide();
-		  }else 
-		  {$("#business").show();}
-		});
-	});</script>
+	<script>$(document).ready(function () {
+			$('#cantao').on('change', function () {
+				if (this.value === 'Zürich' || 'Aargau' || 'St. Gallen' || 'Appenzell Ausserrhoden' || 'Appenzell Innerrhoden' || 'Luzern' || 'Schaffhausen') {
+					$("#business").show();
+				}
+				else {
+					$("#business").hide();
+				}
+			});
+		});</script>
+	<script>$(document).ready(function () {
+			$('#cantao').on('change', function () {
+				if (this.value === 'Genf') {
+					$("#business").hide();
+				}
+				else if (this.value === 'Uri' || this.value === 'Zug' || this.value === 'Schwyz' ||
+					this.value === 'Obwalden' || this.value === 'Nidwalden' || this.value === 'Glarus' ||
+					this.value === 'Freiburg' || this.value === 'Solothurn' || this.value === 'Basel-Stadt' ||
+					this.value === 'Basel-Landschaft' || this.value === 'Graubünden' || this.value === 'Thurgau'
+					|| this.value === 'Tessin' || this.value === 'Waadt' || this.value === 'Wallis'
+					|| this.value === 'Neuenburg' || this.value === 'Bern' || this.value === 'Jura') {
+					$("#business").hide();
+				} else { $("#business").show(); }
+			});
+		});</script>
 	<script>
 		$(document).ready(function () {
 
@@ -620,6 +623,9 @@
 				localStorage.setItem("cartData", JSON.stringify(initialCartData));
 			}
 
+			cartData = JSON.parse(localStorage.getItem("cartData"));
+			$("#cart_data").val(JSON.stringify(cartData));
+
 			// remove cart
 			$(".product-remove-button").click(function () {
 				var cartData = JSON.parse(localStorage.getItem("cartData"));
@@ -632,10 +638,15 @@
 						totalPrice += cartData[i].totalPrice;
 					}
 				}
-				localStorage.setItem("cartData", JSON.stringify(updatedCartData));
+
+				updatedCartData = JSON.stringify(updatedCartData);
+				$("#cart_data").val(updatedCartData);
+
+				localStorage.setItem("cartData", updatedCartData);
 				$("#total_price").html(`${paymentUnit}${totalPrice}`);
 				$(this).parent().parent().remove();
-			})
+			});
+
 		}) 
 	</script>
 

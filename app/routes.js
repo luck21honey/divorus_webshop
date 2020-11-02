@@ -133,11 +133,17 @@ module.exports = function (app, passport, fs, stripe, uuid) {
      var codpos = req.body.codpos;
      var telefone = req.body.telefone;
      var email = req.body.email;
+     var cart_data = JSON.parse(req.body.cart_data); // cart data
   
     var values = [];
-    values.push([pnome, unome, cantao, morada, codpos, telefone, email]);
     
-    db.query('INSERT INTO `encomendas` (nomeuser, unome, cantao, moradauser, codigopostaluser, telefoneuser, emailuser) VALUES ?', [values], function(err,result) {
+    cart_data.map(item => {
+      var price = String(item.price).substr(1);
+      values.push([pnome, unome, cantao, morada, codpos, telefone, email, item.id, item.quantity, price]);
+    });
+
+    console.log('values...', values)
+    db.query('INSERT INTO `encomendas` (nomeuser, unome, cantao, moradauser, codigopostaluser, telefoneuser, emailuser, produtos, quantidade, price) VALUES ?', [values], function(err,result) {
         if(err) {
           error = 'SQL ERROR '+err.sqlMessage;
         }

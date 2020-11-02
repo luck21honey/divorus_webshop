@@ -259,7 +259,6 @@
 									<th>Quantidade</th>
 									<th>Total</th>
 								</tr>
-								<form action="./encomendas" method="POST" class="billing-form" action="./encomendas">
 
 							</thead>
 
@@ -277,7 +276,7 @@
 					<div class="container">
 						<div class="row justify-content-center">
 							<div class="col-xl-7 ftco-animate">
-								<form action="./encomendas" method="POST" class="billing-form" action="./encomendas">
+								<form action="./encomendas" method="POST" class="billing-form" id="billing_form">
 									<input type="hidden" id="cart_data" name="cart_data">
 									<h3 class="mb-4 billing-heading">Detalhes do Cliente</h3>
 									<div class="row align-items-end">
@@ -382,7 +381,8 @@
 											<p><a id='business' href="#" class="btn btn-primary py-3 px-4"
 													style="display:none">Pagar com cartão de crédito</a></p>
 
-											<button type="submit" class="btn btn-primary py-3 px-4">Fazer o pedido
+											<button type="button" id="billing_submit"
+												class="btn btn-primary py-3 px-4">Fazer o pedido
 												(pagar na entrega)</button>
 										</div>
 									</div>
@@ -574,8 +574,27 @@
 	<script>
 		$(document).ready(function () {
 
+			if (localStorage.getItem("submit_cart")) {
+				localStorage.removeItem("submit_cart");
 
+				$(".icon-shopping_cart").html(`[0]`);
+				$("#total_price").html(`0`);
+				var initialCartData = [];
+				localStorage.setItem("cartData", JSON.stringify(initialCartData));
+			}
+			
 			var cartData = JSON.parse(localStorage.getItem("cartData"));
+			$("#billing_submit").click(function (e) {
+				e.preventDefault();
+				if (cartData.length) {
+					console.log('capty')
+					localStorage.setItem("submit_cart", true);
+					$("#billing_form").submit();
+				} else {
+					console.log('cart data is empty')
+				}
+			})
+
 			var totalPrice = 0;
 			if (cartData && cartData.length) {
 				$("#count_of_cart").html(`[${cartData.length}]`)
